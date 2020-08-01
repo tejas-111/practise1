@@ -1,0 +1,91 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PRN Generation</title>
+    <style>
+       
+        .container
+        {   border: 1px solid #00CCCC;
+            background-color: #FFFF00;
+            padding: 70px;
+            margin: 230px;
+            
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+
+        <h1 style="margin-left: 290px;">PRN GENERATION</h1>
+        <select name="select" id="select" style="margin-left: 300px;">
+            <option value="0">Select</option>
+            <option value="1">Computer Science Department</option>
+            <option value="2">Electronic Department</option>
+            <option value="3">Mechanical Department</option>
+            <option value="4">Civil Department</option>
+            <option value="5">Chemical Department</option>
+        </select>
+        <span><button id="btn" onclick="myfunct()">Submit</button></span>
+	
+        <p style="margin-left:320px" >Generated PRN:</p>
+        <span id="disp" style="margin-left:310px; color: blue; font-size: 25px;"></span>
+        <p>NOTE: Ex. CS=Computer Science Department;  01-04=Batch;  1-1000=Sequence Number</p>
+    </div>
+    <script>
+        function myfunct() {
+            var select = document.getElementById("select");
+            
+
+            if (select.value == "0") {
+                alert("PLease select one of the option");
+                return false;
+            }
+            if (select.value == "1") {
+                var department = "CS";
+            }
+            if (select.value == "2") {
+                var department = "EX";
+            }
+            if (select.value == "3") {
+                var department = "ME";
+            }
+            if (select.value == "4") {
+                var department = "CV";
+            }
+            if (select.value == "5") {
+                var department = "CH";
+            }
+
+            
+            var a1 = 1;
+            var b1 = 999;
+            var b2 = a1 + (b1 - a1) * Math.random();
+            var no = Math.round(b2);
+
+            if (no < 10) {
+                var sn = "000" + no;
+            }
+            if (no < 100 & no >= 10) {
+                var sn = "00" + no;
+            }
+            if (no < 1000 & no >= 100) {
+                var sn = "0" + no;
+            }
+
+            var c1 = 1;
+            var d1 = 4;
+            var d2 = c1 + (d1 - c1) * Math.random();
+            var batch = Math.round(d2);
+
+            document.getElementById('disp').innerHTML = "20" + department + "0" + batch + sn;
+
+        }
+    </script>
+</body>
+
+</html>
